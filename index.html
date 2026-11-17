@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INDAH KOST | Sistem Pelaporan Kerusakan</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NOTIFIKASI -->
+    <div id="toast" class="toast" role="status"></div>
+
+
+    <!-- =====================================
+         HALAMAN LOGIN DAN REGISTER
+    ====================================== -->
+
+    <main id="authView" class="auth-view">
+
+        <!-- BAGIAN KIRI -->
+        <section class="auth-hero">
+
+            <div class="brand-mark">IK</div>
+
+            <p class="eyebrow">SMART BOARDING HOUSE</p>
+
+            <h1>
+                INDAH<br>
+                <span>KOST.</span>
+            </h1>
+
+            <p class="hero-copy">
+                Sistem pelaporan kerusakan fasilitas kos
+                yang lebih mudah, teratur, dan transparan.
+            </p>
+
+            <div class="hero-decoration">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <p class="hero-foot">
+                LAPORKAN • PANTAU • SELESAI
+            </p>
+
+        </section>
+
+
+        <!-- BAGIAN KANAN -->
+        <section class="auth-panel">
+
+            <div class="auth-card">
+
+                <!-- JUDUL LOGIN -->
+                <div class="auth-heading">
+
+                    <p class="eyebrow" id="authEyebrow">
+                        SELAMAT DATANG
+                    </p>
+
+                    <h2 id="authTitle">
+                        Masuk ke akun
+                    </h2>
+
+                    <p id="authSubtitle">
+                        Silakan login untuk melanjutkan ke sistem.
+                    </p>
+
+                </div>
+
+
+                <!-- FORM LOGIN -->
+                <form id="loginForm">
+
+                    <label for="loginRole">
+                        Masuk sebagai
+                    </label>
+
+                    <select id="loginRole" required>
+                        <option value="anak">Anak Kos</option>
+                        <option value="pemilik">Pemilik Kos</option>
+                    </select>
+
+
+                    <label for="loginUsername">
+                        Email
+                    </label>
+
+                    <input
+                        id="loginUsername"
+                        type="email"
+                        placeholder="Masukkan email"
+                        autocomplete="username"
+                        required
+                    >
+
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <div class="password-wrap">
+
+                        <input
+                            id="loginPassword"
+                            type="password"
+                            placeholder="Masukkan password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            id="toggleLoginPassword"
+                        >
+                            Lihat
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="loginMessage"
+                        class="form-message"
+                    ></p>
+
+
+                    <button
+                        class="btn btn-primary btn-full"
+                        type="submit"
+                    >
+                        Login <span>→</span>
+                    </button>
+
+                </form>
+
+
+                <!-- PINDAH KE REGISTER -->
+                <div class="auth-switch" id="loginSwitch">
+
+                    Belum punya akun?
+
+                    <button
+                        type="button"
+                        id="showRegister"
+                    >
+                        Daftar
+                    </button>
+
+                </div>
+
+
+                <!-- FORM REGISTER -->
+                <form id="registerForm" hidden>
+
+                    <label for="registerName">
+                        Nama lengkap
+                    </label>
+
+                    <input
+                        id="registerName"
+                        type="text"
+                        placeholder="Masukkan nama lengkap"
+                        autocomplete="name"
+                        required
+                    >
+
+
+                    <label for="registerRoom">
+                        Lokasi / nomor kamar
+                    </label>
+
+                    <input
+                        id="registerRoom"
+                        type="text"
+                        placeholder="Contoh: Kamar 2B"
+                        required
+                    >
+
+
+                    <label for="registerUsername">
+                        Username
+                    </label>
+
+                    <input
+                        id="registerUsername"
+                        type="text"
+                        placeholder="Buat username"
+                        autocomplete="username"
+                        required
+                    >
+
+
+                    <label for="registerEmail">
+                        Email
+                    </label>
+
+                    <input
+                        id="registerEmail"
+                        type="email"
+                        placeholder="Masukkan email aktif"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <label for="registerPassword">
+                        Password
+                    </label>
+
+                    <div class="password-wrap">
+
+                        <input
+                            id="registerPassword"
+                            type="password"
+                            minlength="6"
+                            placeholder="Minimal 6 karakter"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            id="toggleRegisterPassword"
+                        >
+                            Lihat
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="registerMessage"
+                        class="form-message"
+                    ></p>
+
+
+                    <button
+                        class="btn btn-primary btn-full"
+                        type="submit"
+                    >
+                        Buat Akun <span>→</span>
+                    </button>
+
+
+                    <!-- KEMBALI KE LOGIN -->
+                    <div class="auth-switch">
+
+                        Sudah punya akun?
+
+                        <button
+                            type="button"
+                            id="showLogin"
+                        >
+                            Login
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================
+         APLIKASI SETELAH LOGIN
+    ====================================== -->
+
+    <div id="appView" class="app-view" hidden>
+
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <!-- LOGO -->
+            <div class="sidebar-brand">
+
+                <div class="brand-mark small">
+                    IK
+                </div>
+
+                <div>
+                    <b>INDAH KOST</b>
+                    <small>REPORTING SYSTEM</small>
+                </div>
+
+            </div>
+
+
+            <!-- INFORMASI PENGGUNA -->
+            <div class="side-user">
+
+                <div class="avatar" id="sideAvatar">
+                    U
+                </div>
+
+                <div>
+                    <b id="sideName">
+                        Pengguna
+                    </b>
+
+                    <small id="sideRole">
+                        Anak Kos
+                    </small>
+                </div>
+
+            </div>
+
+
+            <!-- MENU NAVIGASI DINAMIS -->
+            <nav
+                id="sideNav"
+                class="side-nav"
+            ></nav>
+
+
+            <!-- TOMBOL KELUAR -->
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                type="button"
+            >
+                <span>↪</span>
+                Keluar
+            </button>
+
+
+            <!-- FOOTER SIDEBAR -->
+            <div class="sidebar-bottom">
+                INDAH KOST <span>v1.0</span>
+            </div>
+
+        </aside>
+
+
+
+        <!-- AREA UTAMA -->
+        <div class="main-area">
+
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <button
+                    id="menuToggle"
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Buka menu"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <p class="eyebrow">
+                        SISTEM PELAPORAN FASILITAS
+                    </p>
+
+                    <h2 id="pageHeading">
+                        Dashboard
+                    </h2>
+
+                </div>
+
+
+                <!-- INFORMASI TANGGAL DAN AVATAR -->
+                <div class="topbar-right">
+
+                    <span class="online-dot"></span>
+
+                    <span id="todayDate"></span>
+
+                    <div
+                        class="avatar top-avatar"
+                        id="topAvatar"
+                    >
+                        U
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- KONTEN HALAMAN DINAMIS -->
+            <main
+                id="pageContent"
+                class="page-content"
+            ></main>
+
+
+
+            <!-- FOOTER -->
+            <footer class="footer">
+
+                © 2026 INDAH KOST ·
+                Sistem Pelaporan Kerusakan Fasilitas Kos
+
+            </footer>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         KONEKSI SUPABASE
+    ====================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+
+    <!-- =====================================
+         JAVASCRIPT TERPISAH
+    ====================================== -->
+
+    <script src="js/core.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/dashboard-anak.js"></script>
+
+    <script src="js/dashboard-pemilik.js"></script>
+
+    <script src="js/laporan.js"></script>
+
+    <script src="js/riwayat.js"></script>
+
+    <script src="js/logout.js"></script>
+
+
+    <!-- EVENT LOGOUT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tombolLogout = document.getElementById("logoutBtn");
+
+            if (tombolLogout) {
+                tombolLogout.addEventListener("click", logout);
+            }
+        });
+    </script>
+
+</body>
+</html>
